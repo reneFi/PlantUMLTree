@@ -60,13 +60,16 @@ relationship_state: state
                   | substate
                   | fork_join
 
+statealias: "state" alias_text "as" state_name?
+
 substate: "state" arrow_end_1 "{" state* "}"
 
 state: initial_state arrow_body ">" arrow_end_2
      | arrow_end_1 arrow_body ">" arrow_end_2 [":" relation_text]
-     | arrow_end_1 arrow_body ">" final_state
+     | arrow_end_1 arrow_body ">" final_state [":" relation_text]
      | arrow_end_1 [":" relation_text]
      | substate
+     | statealias
 
 fork_join: "state" state_name stereotype?
 
@@ -128,7 +131,8 @@ method_name: CNAME
 class_name: CNAME
 state_name: CNAME
 stereotype_name: CNAME
-relation_text: (WORD|ESCAPED_STRING|DIGIT|">"|"<")*
+alias_text: ESCAPED_STRING 
+relation_text: (WORD|ESCAPED_STRING|DIGIT|">"|"<"|"/")*
 field_text: (WORD|ESCAPED_STRING|DIGIT)*
 method_text: (WORD|ESCAPED_STRING|DIGIT)*
 class_mem_text: (WORD|ESCAPED_STRING|DIGIT)*
