@@ -1,19 +1,22 @@
-# PlatUML Parser
+# PlantUMLTree
 
-This is a Proof-of-Concept PlantUML parser. This is still WIP, and support is
-being added incrementally. PlantUML is being parsed using LARK and described in
-EBNF.
+This is PlantUML parser based on the Proof-of-Concept PlantUML parser (https://github.com/pjcuadra/plantuml-parser/blob/master/README.md). The parser now supports:
+
+* class diagrams
+* state diagrams 
+
+PlantUML is being parsed using LARK and described in EBNF.
 
 ## Usage
 
 ```
-python plantuml-parser.py -i <plantuml-file>
+python plantuml-tree.py -i <plantuml-file>
 ```
 
 ## TODOs
 
-* Finish Supporting all Class Diagram features in
-  http://plantuml.com/class-diagram
+* Finish Supporting all diagram features for state and class diagrams 
+
 * Add support for other diagrams;
 
   * Sequence Diagram
@@ -24,6 +27,3 @@ python plantuml-parser.py -i <plantuml-file>
   * Object Diagram
   * Deployment Diagram
   * Timing Diagram
-
-* Add setup.py
-* Output AST as JSON or other usable format instead of STDOUT
