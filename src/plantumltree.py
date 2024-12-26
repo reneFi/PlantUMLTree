@@ -40,7 +40,7 @@ def getopts(argvalues):
     return opts
 
 def print_tree(node, level=0):
-    # Print the current node with indentation based on the level
+    """ Print the current node with indentation based on the level """
     print("  " * level + f"{node.data}")
     
     # Recursively print each child
@@ -52,6 +52,7 @@ def print_tree(node, level=0):
 
 
 def in_order_traversal(node):
+    """ Print the tree in in order traversal """
     if len(node.children) == 2:  # Binary operator case
         if isinstance(node.children[0], Tree):
             in_order_traversal(node.children[0])
@@ -67,7 +68,7 @@ def in_order_traversal(node):
 
 # Function to recursively traverse the tree
 def traverse_tree(tree):
-    # Print the data of the current node
+    """ Print the tree by recursively traversing the tree """
     print(f"Node: {tree.data}")
     
     # If the node has children, recursively traverse them
