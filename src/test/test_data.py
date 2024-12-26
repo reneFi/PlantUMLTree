@@ -19,7 +19,7 @@ import os
 from lark import Lark
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-test_data_path = os.path.join(dir_path, 'data')
+grammar_test_path = os.path.join(dir_path, 'grammar')
 
 
 def get_parser():
@@ -36,7 +36,7 @@ def test_class():
     """Fuction for testing all plantuml class diagrams located in class_diagram folder"""
     parser = get_parser()
 
-    diagrams_path = os.path.join(test_data_path, 'class_diagram')
+    diagrams_path = os.path.join(grammar_test_path, 'class_diagram')
 
     for _, _, files in os.walk(diagrams_path):
         files.remove("README")
@@ -49,7 +49,7 @@ def test_state():
     """Fuction for testing all plantuml class diagrams located in class_diagram folder"""
     parser = get_parser()
 
-    diagrams_path = os.path.join(test_data_path, 'state_diagram')
+    diagrams_path = os.path.join(grammar_test_path, 'state_diagram')
 
     for _, _, files in os.walk(diagrams_path):
         for filename in files:
