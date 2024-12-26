@@ -60,14 +60,17 @@ relationship_state: state
                   | substate
                   | fork_join
 
+//Transition
+transition: arrow_body ">"
+
 statealias: "state" alias_text "as" state_name?
 
 substate: "state" arrow_end_1 "{" state* "}"
 
-state: initial_state arrow_body ">" arrow_end_2
-     | arrow_end_1 arrow_body ">" arrow_end_2 [":" relation_text]
-     | arrow_end_1 arrow_body ">" final_state [":" relation_text]
-     | arrow_end_1 [":" relation_text]
+state: initial_state transition end_state
+     | begin_state transition end_state [":" relation_text]
+     | begin_state transition final_state [":" relation_text]
+     | begin_state [":" relation_text]
      | substate
      | statealias
 
@@ -118,8 +121,10 @@ visibility: "+" -> public
           | "#" -> protected
           | "~" -> package
 
-initial_state: final_state
+initial_state: "[*]"
 final_state: "[*]"
+begin_state: CNAME
+end_state: CNAME
 arrow_end_1: CNAME
 arrow_end_2: CNAME
 type: CNAME
