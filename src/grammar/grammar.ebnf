@@ -1,4 +1,4 @@
-start: "@startuml" (skinparam | class | relationship)* "@enduml"
+start: startpuml (skinparam | class | relationship | state_machine)* endpuml
 
 // Skinparam
 skinparam: "skinparam" sparam svalue
@@ -51,25 +51,27 @@ att_scope: "{static}" -> static
          | "{abstract}" -> abstract
 
 // Relationships
-relationship: ( relationship_class | relationship_state) 
+relationship: relationship_class  
 
 relationship_class: arrow_end_1 cardinality? arrow_head_1 arrow_body arrow_head_2 cardinality? arrow_end_2 [":" relation_text]
 
 // Statemachine
-relationship_state: state
+state_machine:      state
                   | substate
                   | fork_join
 
-//Transition
-transition: arrow_body ">"
+//state_transition
+state_transition: arrow_body ">"
 
 statealias: "state" alias_text "as" state_name?
 
 substate: "state" arrow_end_1 "{" state* "}"
 
-state: initial_state transition end_state
-     | begin_state transition end_state [":" relation_text]
-     | begin_state transition final_state [":" relation_text]
+initial_relation: initial_state state_transition end_state
+
+state: initial_state state_transition end_state
+     | begin_state state_transition end_state [":" relation_text]
+     | begin_state state_transition final_state [":" relation_text]
      | begin_state [":" relation_text]
      | substate
      | statealias
@@ -142,6 +144,9 @@ field_text: (WORD|ESCAPED_STRING|DIGIT)*
 method_text: (WORD|ESCAPED_STRING|DIGIT)*
 class_mem_text: (WORD|ESCAPED_STRING|DIGIT)*
 group_title: (WORD|ESCAPED_STRING|DIGIT)*
+startpuml: "@startuml"
+endpuml: "@enduml"
+
 
 %import common.CNAME
 %import common.ESCAPED_STRING
