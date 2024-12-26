@@ -60,7 +60,7 @@ def in_order_traversal(node):
             print(node.children[0], end=" ")
 
         print(node.data, end=" ")
-    
+        
         if isinstance(node.children[1], Tree):
             in_order_traversal(node.children[1])
         else:
