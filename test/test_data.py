@@ -24,7 +24,7 @@ grammar_test_path = os.path.join(dir_path, 'grammar')
 
 def get_parser():
     """Factory method for starting parser"""
-    grammar_file_path = os.path.join(dir_path, "..", "grammar", "grammar.ebnf")
+    grammar_file_path = os.path.join(dir_path, "../src", "grammar", "grammar.ebnf")
 
     with open(grammar_file_path, encoding="utf-8") as grammar_file:
         parser = Lark(grammar_file.read())
