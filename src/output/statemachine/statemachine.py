@@ -22,7 +22,7 @@ class StateMachine(NamedObject):
     This class conains the statemachine 
     """
     def __init__(self, name):
-        super().__init__(name)  
+        super().__init__(name)
         self.initial_state = None
 
     def get_initial_state(self):
