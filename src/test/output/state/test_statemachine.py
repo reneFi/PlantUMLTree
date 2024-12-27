@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from src.output.statemachine.statemachine import StateMachine
-from src.output.statemachine.statemachine import State
+from output.statemachine.statemachine import StateMachine
+from output.statemachine.statemachine import State
 
 def test_statemachine_name():
     """Fuction for testing all plantuml class diagrams located in class_diagram folder"""
