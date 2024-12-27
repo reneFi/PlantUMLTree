@@ -1,4 +1,4 @@
-"""Test execution for plantuml parser"""
+"""Test execution for state machine abstraction functionality"""
 
 # Copyright 2024 René Fischer - renefischer@fischer-homenet.de
 #
